@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/holiday.css@0.9.8" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebApp.styles.css" asp-append-version="true" />
+    @RenderSection("CustomCSS", required: false)
 </head>
 <body>
     <header>
@@ -20,7 +21,22 @@
                 <li>
                     <a asp-area="" asp-page="/Index">Home</a>
                 </li>
-                <li class="nav-item">
+                @*setup a submenu (drop-down menu) using holiday.css see holidayscss.js.org
+
+                start with an li tag
+                add a span tag: entry on menu root
+                and a ul tag: starts the drop down menu
+                add any number of li and a tags: sub menu item entries
+
+                *@
+                <li>
+                    <span>Samples</span>
+                    <ul>
+                        <li><a asp-area="" asp-page="/SamplePages/Basics">Basics</a></li>
+                        <li><a asp-area="" asp-page="/SamplePages/Controls">Controls</a></li>
+                    </ul>
+                </li>
+                <li>
                     <a asp-area="" asp-page="/Privacy">Privacy</a>
                 </li>
         `       <partial name="_LoginPartial" />
@@ -29,14 +45,14 @@
         </nav>
     </header>
     <div>
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
     <footer>
         <div>
-            &copy; 2022 - WebApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            &copy; Jan 2022 - Chinook WebApp -NAIT DMIT2018 Learning Sample (all rights reserved)<a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
 
